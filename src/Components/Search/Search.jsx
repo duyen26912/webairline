@@ -59,7 +59,7 @@ const Search = () => {
                         </div>
 
                         <div className="texts">
-                            <h4>Check In</h4>
+                            <h4>Check out</h4>
                             <input type="text" placeholder='Add date' />
                         </div>
                     </div>

@@ -33,6 +33,8 @@
                 .icon {
                     color: var(--PrimaryColor);
                     font-size: 25px;
+                    margin-right: 10px;
+
                 }
             }
         }
@@ -136,5 +138,106 @@
                 }
             }
         }
+    }
+
+    .activeHeader {
+        background: var(--greyText);
+        box-shadow: 0 2px 8px 2px rgba(178, 178, 178, 0.45);
+
+    }
+}
+
+// @media screen and (min-width: 769px) {
+
+//     .toggleNavbar,
+//     .closeNavbar {
+//         display: none;
+//     }
+
+//     .header {
+//         padding: 1.5rem 2rem;
+
+//         .navBar {
+//             .navLists {
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 flex-direction: row;
+//             }
+//         }
+//     }
+// }
+@media screen and (min-width: 769px) {
+
+    .navBarSection{
+        .toggleNavbar,.closeNavbar{
+            display: none;
+        }
+        .header {
+            padding: 1.5rem 2rem;
+
+            .navBar {
+                .navLists {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+
+                    .navItem{
+                        .navLink{
+                            color: var(--whiteColor);
+                            padding: .5rem;
+                            font-size: .9rem;
+                            font-weight: 400;
+
+                            &:hover{
+                                color: var(--PrimaryColor);
+                            }
+                        }
+                    }
+
+                    .btn{
+                        margin-left: 1rem;
+                        a{
+                            color: var(--whiteColor);
+                            font-weight: 500;
+                        }
+                    }
+
+                    .loginBtn{
+                        background:none;
+                        border: 1px solid var(--PrimaryColor);
+
+                        &:hover{
+                            background: var(--PrimaryColor);
+                            a{
+                                color: var(--whiteColor);
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:960px) {
+    .header{
+        .navBar{
+            .navLists{
+                .navItem{
+                    padding: 0 .7rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .header {
+        padding: 1rem 8.5rem;
+        
+
     }
 }
