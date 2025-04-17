@@ -12,8 +12,8 @@
 }
 
 .home {
-  height: 80vh;
-  background: linear-gradient(rgba(33, 33, 33, 0.522), rgba(33, 33, 33, 0.522)), url(../../Assets/image1.jpg);
+  height: 95vh;
+  background: linear-gradient(rgba(33, 33, 33, 0.522), rgba(33, 33, 33, 0.522)), url(../../Assets/image16.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,8 +23,12 @@
   margin: auto;
   position: relative;
 }
+.home .secContainer {
+  width: 100%;
+}
 .home .secContainer .homeText {
   text-align: center;
+  padding-bottom: 7rem;
 }
 .home .secContainer .homeText .title {
   color: var(--whiteColor);
@@ -44,34 +48,85 @@
 }
 .home .secContainer .homeText .btn {
   padding: 0.6rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.home .secContainer .homeText .btn:hover {
+  background: var(--HoverColor);
 }
 .home .secContainer .homeCard {
-  width: 80%;
+  width: 85%;
+  max-width: 1100px;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.5rem;
   background: var(--whiteColor);
   position: absolute;
   gap: 1rem;
   justify-content: center;
-  bottom: -35%;
+  top: 65%;
   transform: translate(-50%);
   left: 50%;
   box-shadow: 0 2px 8px 4px rgba(178, 178, 178, 0.45);
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+.home .secContainer .homeCard .tripTypeTop {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  grid-column: span 4;
+}
+.home .secContainer .homeCard .tripTypeTop button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.home .secContainer .homeCard .tripTypeTop button .icon {
+  font-size: 15px;
+  text-align: center;
+  justify-content: center;
+}
+.home .secContainer .homeCard .tripTypeTop button.active {
+  background-color: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.home .secContainer .homeCard .tripTypeTop button:hover {
+  background-color: #eaeaea;
+}
+.home .secContainer .homeCard .fromDiv,
+.home .secContainer .homeCard .toDiv {
+  grid-column: span 2;
+}
+.home .secContainer .homeCard .departDiv,
+.home .secContainer .homeCard .returnDiv {
+  grid-column: span 2;
+}
+.home .secContainer .homeCard .passengersDiv {
+  grid-column: span 4;
 }
 .home .secContainer .homeCard .fromDiv,
 .home .secContainer .homeCard .toDiv,
 .home .secContainer .homeCard .departDiv,
 .home .secContainer .homeCard .returnDiv,
-.home .secContainer .homeCard .passengerDiv,
-.home .secContainer .homeCard .classDiv {
+.home .secContainer .homeCard .passengersDiv {
   width: 100%;
 }
 .home .secContainer .homeCard .fromDiv label,
 .home .secContainer .homeCard .toDiv label,
 .home .secContainer .homeCard .departDiv label,
 .home .secContainer .homeCard .returnDiv label,
-.home .secContainer .homeCard .passengerDiv label,
-.home .secContainer .homeCard .classDiv label {
+.home .secContainer .homeCard .passengersDiv label {
   display: block;
   color: var(--textColor);
   font-weight: 500;
@@ -82,8 +137,7 @@
 .home .secContainer .homeCard .toDiv label .icon,
 .home .secContainer .homeCard .departDiv label .icon,
 .home .secContainer .homeCard .returnDiv label .icon,
-.home .secContainer .homeCard .passengerDiv label .icon,
-.home .secContainer .homeCard .classDiv label .icon {
+.home .secContainer .homeCard .passengersDiv label .icon {
   font-size: 16px;
   color: var(--PrimaryColor);
 }
@@ -91,8 +145,7 @@
 .home .secContainer .homeCard .toDiv input,
 .home .secContainer .homeCard .departDiv input,
 .home .secContainer .homeCard .returnDiv input,
-.home .secContainer .homeCard .passengerDiv input,
-.home .secContainer .homeCard .classDiv input {
+.home .secContainer .homeCard .passengersDiv input {
   width: 100%;
   background: var(--inputColor);
   border-radius: 10px;
@@ -101,12 +154,12 @@
   font-size: 13px;
   font-weight: 500;
 }
-.home .secContainer .homeCard .fromDiv input::-moz-placeholder, .home .secContainer .homeCard .toDiv input::-moz-placeholder, .home .secContainer .homeCard .departDiv input::-moz-placeholder, .home .secContainer .homeCard .returnDiv input::-moz-placeholder, .home .secContainer .homeCard .passengerDiv input::-moz-placeholder, .home .secContainer .homeCard .classDiv input::-moz-placeholder {
+.home .secContainer .homeCard .fromDiv input::-moz-placeholder, .home .secContainer .homeCard .toDiv input::-moz-placeholder, .home .secContainer .homeCard .departDiv input::-moz-placeholder, .home .secContainer .homeCard .returnDiv input::-moz-placeholder, .home .secContainer .homeCard .passengersDiv input::-moz-placeholder {
   font-size: 13px;
   opacity: 0.5;
   font-weight: 400;
 }
-.home .secContainer .homeCard .fromDiv input:-ms-input-placeholder, .home .secContainer .homeCard .toDiv input:-ms-input-placeholder, .home .secContainer .homeCard .departDiv input:-ms-input-placeholder, .home .secContainer .homeCard .returnDiv input:-ms-input-placeholder, .home .secContainer .homeCard .passengerDiv input:-ms-input-placeholder, .home .secContainer .homeCard .classDiv input:-ms-input-placeholder {
+.home .secContainer .homeCard .fromDiv input:-ms-input-placeholder, .home .secContainer .homeCard .toDiv input:-ms-input-placeholder, .home .secContainer .homeCard .departDiv input:-ms-input-placeholder, .home .secContainer .homeCard .returnDiv input:-ms-input-placeholder, .home .secContainer .homeCard .passengersDiv input:-ms-input-placeholder {
   font-size: 13px;
   opacity: 0.5;
   font-weight: 400;
@@ -115,8 +168,7 @@
 .home .secContainer .homeCard .toDiv input::placeholder,
 .home .secContainer .homeCard .departDiv input::placeholder,
 .home .secContainer .homeCard .returnDiv input::placeholder,
-.home .secContainer .homeCard .passengerDiv input::placeholder,
-.home .secContainer .homeCard .classDiv input::placeholder {
+.home .secContainer .homeCard .passengersDiv input::placeholder {
   font-size: 13px;
   opacity: 0.5;
   font-weight: 400;
@@ -125,59 +177,211 @@
 .home .secContainer .homeCard .toDiv input:focus,
 .home .secContainer .homeCard .departDiv input:focus,
 .home .secContainer .homeCard .returnDiv input:focus,
-.home .secContainer .homeCard .passengerDiv input:focus,
-.home .secContainer .homeCard .classDiv input:focus {
+.home .secContainer .homeCard .passengersDiv input:focus {
   outline: none;
+  border: 1px solid var(--PrimaryColor);
+}
+.home .secContainer .homeCard .passengersDiv .passengerInputs {
+  display: flex;
+  gap: 1rem;
+  background: var(--inputColor);
+  border-radius: 10px;
+  padding: 10px;
+}
+.home .secContainer .homeCard .passengersDiv .passengerInputs .passengerType {
+  flex: 1;
+}
+.home .secContainer .homeCard .passengersDiv .passengerInputs .passengerType label {
+  font-size: 12px;
+  color: var(--textColor);
+  padding-bottom: 0.2rem;
+}
+.home .secContainer .homeCard .passengersDiv .passengerInputs .passengerType input {
+  background: var(--whiteColor);
+  border: 1px solid var(--greyText);
 }
 .home .secContainer .homeCard .btn {
   width: 100%;
   padding: 0.6rem 1.5rem;
   color: var(--whiteColor);
   font-weight: 600;
+  background: var(--PrimaryColor);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  grid-column: span 4;
+}
+.home .secContainer .homeCard .btn:hover {
+  background: var(--HoverColor);
 }
 
-@media screen and (min-width: 480px) {
+.airportInput {
+  position: relative;
+  width: 100%;
+  grid-column: span 2;
+}
+.airportInput label {
+  display: block;
+  color: var(--textColor);
+  font-weight: 500;
+  font-size: 13px;
+  padding-bottom: 0.4rem;
+}
+.airportInput label .icon {
+  font-size: 16px;
+  color: var(--PrimaryColor);
+}
+.airportInput input {
+  width: 100%;
+  background: var(--inputColor);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.airportInput input::-moz-placeholder {
+  font-size: 13px;
+  opacity: 0.5;
+  font-weight: 400;
+}
+.airportInput input:-ms-input-placeholder {
+  font-size: 13px;
+  opacity: 0.5;
+  font-weight: 400;
+}
+.airportInput input::placeholder {
+  font-size: 13px;
+  opacity: 0.5;
+  font-weight: 400;
+}
+.airportInput input:focus {
+  outline: none;
+  border: 1px solid var(--PrimaryColor);
+}
+.airportInput .suggestionsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--whiteColor);
+  border: 1px solid var(--greyText);
+  border-radius: 0 0 10px 10px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.airportInput .suggestionsDropdown .suggestionItem {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--greyBg);
+  transition: background 0.2s;
+}
+.airportInput .suggestionsDropdown .suggestionItem:hover {
+  background: var(--inputColor);
+}
+.airportInput .suggestionsDropdown .suggestionItem:last-child {
+  border-bottom: none;
+}
+.airportInput .suggestionsDropdown .suggestionItem .airportCode {
+  font-weight: bold;
+  min-width: 50px;
+  color: var(--PrimaryColor);
+  margin-right: 10px;
+}
+.airportInput .suggestionsDropdown .suggestionItem .airportInfo {
+  flex: 1;
+}
+.airportInput .suggestionsDropdown .suggestionItem .airportInfo .airportCityCountry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.airportInput .suggestionsDropdown .suggestionItem .airportInfo .airportCityCountry .city {
+  font-weight: 500;
+}
+.airportInput .suggestionsDropdown .suggestionItem .airportInfo .airportCityCountry .country {
+  font-size: 12px;
+  color: var(--textColor);
+}
+.airportInput .suggestionsDropdown .suggestionItem .airportInfo .airportName {
+  font-size: 12px;
+  color: var(--textColor);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1240px) {
   .home .secContainer .homeCard {
-    bottom: -100px;
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
   }
-  .home .secContainer .homeCard .btn {
-    transform: translateY(15px);
+  .home .secContainer .homeCard .tripTypeTop {
+    grid-column: span 2;
+  }
+  .home .secContainer .homeCard .fromDiv,
+.home .secContainer .homeCard .toDiv,
+.home .secContainer .homeCard .departDiv,
+.home .secContainer .homeCard .returnDiv,
+.home .secContainer .homeCard .airportInput {
+    grid-column: span 1;
+  }
+  .home .secContainer .homeCard .passengersDiv,
+.home .secContainer .homeCard .btn {
+    grid-column: span 2;
   }
 }
-@media screen and (min-width: 556px) {
-  .home .secContainer .homeText .title {
-    font-size: 2.5rem;
+@media screen and (max-width: 768px) {
+  .home {
+    height: 100vh;
   }
-  .home .secContainer .homeText .subTitle {
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 720px) {
-  .home .secContainer .homeCard {
-    bottom: -10%;
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media screen and (min-width: 720px) {
   .home .secContainer .homeText {
-    padding: 1rem 10rem;
-  }
-  .home .secContainer .homeText .title {
-    font-size: 3.5;
-    margin: auto;
-    line-height: 4rem;
-  }
-  .home .secContainer .homeText .subTitle {
-    width: 70%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .home .secContainer .homeText .subTitle {
-    font-size: 20px;
+    padding-bottom: 9rem;
   }
   .home .secContainer .homeCard {
-    width: 70%;
+    width: 95%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    top: 60%;
+  }
+  .home .secContainer .homeCard .tripTypeTop,
+.home .secContainer .homeCard .passengersDiv,
+.home .secContainer .homeCard .btn {
+    grid-column: span 2;
+  }
+}
+@media screen and (max-width: 480px) {
+  .home {
+    height: 110vh;
+  }
+  .home .secContainer .homeText {
+    padding-bottom: 4rem;
+  }
+  .home .secContainer .homeText .title {
+    font-size: 1.8rem;
+  }
+  .home .secContainer .homeCard {
+    width: 95%;
+    grid-template-columns: 1fr;
+    top: 55%;
+  }
+  .home .secContainer .homeCard .tripTypeTop,
+.home .secContainer .homeCard .fromDiv,
+.home .secContainer .homeCard .toDiv,
+.home .secContainer .homeCard .departDiv,
+.home .secContainer .homeCard .returnDiv,
+.home .secContainer .homeCard .passengersDiv,
+.home .secContainer .homeCard .btn,
+.home .secContainer .homeCard .airportInput {
+    grid-column: span 1;
+  }
+  .home .secContainer .homeCard .passengersDiv .passengerInputs {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }/*# sourceMappingURL=home.css.map */

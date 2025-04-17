@@ -1,77 +1,153 @@
-import React from 'react'
-import "./home.css"
-import { FaPlaneDeparture } from "react-icons/fa";
-import { FaPlaneArrival } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
-import { FiUsers } from "react-icons/fi";
-import { FiChevronDown } from "react-icons/fi";
+import React, { useState } from 'react';
+import './home.scss';
+import { FaPlaneDeparture, FaPlaneArrival, FaCalendarAlt } from 'react-icons/fa';
+import { FiUsers } from 'react-icons/fi';
+import { GoArrowSwitch } from "react-icons/go";
+import { GoArrowRight } from "react-icons/go";
+import AirportInput from '../AirportInput';
 
 const Home = () => {
+  const [tripType, setTripType] = useState('round-trip');
+  const [formData, setFormData] = useState({
+    from: '',
+    to: '',
+    departDate: '',
+    returnDate: '',
+    adults: 1,
+    children: 0
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    // Special handling for airport inputs
+    if ((name === 'from' || name === 'to') && value.includes('(') && value.includes(')')) {
+      const codeMatch = value.match(/\(([A-Z]{3})\)/);
+      if (codeMatch) {
+        setFormData(prev => ({
+          ...prev,
+          [name]: codeMatch[1] // Store only the airport code
+        }));
+        return;
+      }
+    }
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
+  };
 
   return (
     <section className='home'>
       <div className="secContainer container">
         <div className="homeText">
-
           <h1 className="title">
             Elevate Your Journey with QAirline
           </h1>
-
           <p className="subTitle">
             From takeoff to landing, we make every moment in the sky unforgettable.
           </p>
-
-          <button className='btn'>
+          <button className='btn bookNowBtn'>
             <a href="#">Book Now</a>
           </button>
         </div>
 
-        <div className="homeCard gird">
-
-          <div className="fromDiv">
-            <label htmlFor="from"> <FaPlaneDeparture className="icon" />From</label>
-            <input type="text" placeholder='City or Airport' />
+        <div className="homeCard grid">
+          <div className="tripTypeTop">
+            <button
+              className={tripType === 'round-trip' ? 'active' : ''}
+              onClick={() => setTripType('round-trip')}
+            >
+              <GoArrowSwitch className="icon" /> Round Trip
+            </button>
+            <button
+              className={tripType === 'one-way' ? 'active' : ''}
+              onClick={() => setTripType('one-way')}
+            >
+              <GoArrowRight className="icon" /> One Way
+            </button>
           </div>
 
-          <div className="toDiv">
-            <label htmlFor="to"> <FaPlaneArrival className="icon" />To</label>
-            <input type="text" placeholder='City or Airport' />
-          </div>
+          <AirportInput
+            label="From"
+            icon={FaPlaneDeparture}
+            name="from"
+            value={formData.from}
+            onChange={handleInputChange}
+          />
+
+          <AirportInput
+            label="To"
+            icon={FaPlaneArrival}
+            name="to"
+            value={formData.to}
+            onChange={handleInputChange}
+          />
 
           <div className="departDiv">
-            <label htmlFor="departure"> <FaCalendarAlt className="icon" /> Departure Date</label>
-            <input type="date" />
+            <label htmlFor="departDate"><FaCalendarAlt className="icon" /> Departure</label>
+            <input
+              type="date"
+              name="departDate"
+              value={formData.departDate}
+              onChange={handleInputChange}
+            />
           </div>
 
-          {/* <div className="returnDiv">
-            <label htmlFor="return"> <FaCalendarAlt className="icon" /> Return Date</label>
-            <input type="date" />
+          {tripType === 'round-trip' && (
+            <div className="returnDiv">
+              <label htmlFor="returnDate"><FaCalendarAlt className="icon" /> Return</label>
+              <input
+                type="date"
+                name="returnDate"
+                value={formData.returnDate}
+                onChange={handleInputChange}
+              />
+            </div>
+          )}
+
+          <div className="passengersDiv">
+            <label htmlFor="passengers"><FiUsers className="icon" /> Passengers</label>
+            <div className="passengerInputs">
+              <div className="passengerType">
+                <label>Adults (12+ yrs)</label>
+                <input
+                  type="number"
+                  name="adults"
+                  min="1"
+                  max="9"
+                  value={formData.adults}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="passengerType">
+                <label>Children (2-11 yrs)</label>
+                <input
+                  type="number"
+                  name="children"
+                  min="0"
+                  max="8"
+                  value={formData.children}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="passengerDiv">
-            <label htmlFor="passengers"> <FiUsers className="icon" />Passengers</label>
-            <input type="number" placeholder='1' min="1" />
-          </div>
-
-          <div className="classDiv">
-            <label htmlFor="class"><FiChevronDown className="icon" /> Class</label>
-            <select>
-              <option>Economy</option>
-              <option>Business</option>
-              <option>First Class</option>
-            </select>
-          </div> */}
-
-          <button className='btn' >
+          <button className='btn searchBtn' onClick={handleSubmit}>
             Search Flights
           </button>
-
         </div>
-
       </div>
     </section>
+  );
+};
 
-  )
-}
-
-export default Home
+export default Home;
